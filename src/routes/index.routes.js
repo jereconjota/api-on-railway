@@ -1,18 +1,10 @@
 
 import { Router } from 'express';
-import { pool } from '../db.js';
+import { ping } from '../constrollers/index.controller.js';
 
 const router = Router();
 
 //test on db
-router.get('/ping', async (req, res) => {
-    try {
-        const [result] = await pool.query('SELECT "pong" AS solution');
-        res.send(result[0].solution);
-    } catch (err) {
-        console.log(err);
-        res.send('Error: ' + err);
-    }
-});
+router.get('/ping', ping );
 
 export default router;
