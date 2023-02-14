@@ -1,4 +1,5 @@
 import express from 'express';
+import { pool } from './db.js';
 
 const app = express();
 
@@ -26,6 +27,20 @@ app.put('/employees/:id', (req, res) => {
 
 app.delete('/employees/:id', (req, res) => {
     res.send('deleting employee with id: ' + req.params.id);
+});
+
+
+
+
+//test on db
+app.get('/ping', async (req, res) => {
+    try {
+        const [result] = await pool.query('SELECT "pong" AS solution');
+        res.send(result[0].solution);
+    } catch (err) {
+        console.log(err);
+        res.send('Error: ' + err);
+    }
 });
 
 
