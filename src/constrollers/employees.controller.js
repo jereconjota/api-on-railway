@@ -8,7 +8,7 @@ export const getEmployees = async (req, res) => {
         console.log(new Date(Date.now()).toISOString(), 'employees sent');
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             message: 'Something goes wrong'
         });
     }
@@ -29,7 +29,7 @@ export const getEmployee = async (req, res) => {
         console.log(new Date(Date.now()).toISOString(), 'employee sent');
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             message: 'Something goes wrong'
         });
 
@@ -53,7 +53,7 @@ export const createEmployee = async (req, res) => {
         console.log(new Date(Date.now()).toISOString(), 'employee created');
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             message: 'Something goes wrong'
         });
     }
@@ -82,7 +82,7 @@ export const updateEmployee = async (req, res) => {
         console.log(new Date(Date.now()).toISOString(), `employee id:${id} updated`);
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             message: 'Something goes wrong'
         });
     }
@@ -105,7 +105,7 @@ export const deleteEmployee = async (req, res) => {
         console.log('employee deleted');
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(500).json({
             message: 'Something goes wrong'
         });
     }
