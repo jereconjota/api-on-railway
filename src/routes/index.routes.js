@@ -4,7 +4,12 @@ import { ping } from '../constrollers/index.controller.js';
 
 const router = Router();
 
-//test on db
+router.get('/', (req, res) => {
+    res.send('API is working');
+});
+
+
+//test db connection
 router.get('/ping', ping );
 
 export default router;
